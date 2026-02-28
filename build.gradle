@@ -16,6 +16,12 @@ repositories {
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
+
+	// Modrinth Maven
+	maven { url "https://api.modrinth.com/maven/" }
+
+	// Nucleoid Maven
+	maven { url 'https://maven.nucleoid.xyz' }
 }
 
 dependencies {
@@ -26,7 +32,20 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-	
+
+	// Moar Concrete
+	modImplementation("maven.modrinth:moar-concrete:${moarconcrete_version}")
+
+	// Polymer
+	modImplementation ("eu.pb4:polymer-core:${polymer_version}")
+	modImplementation ("eu.pb4:polymer-blocks:${polymer_version}")
+	modImplementation ("eu.pb4:polymer-resource-pack:${polymer_version}")
+	modImplementation ("eu.pb4:polymer-virtual-entity:${polymer_version}")
+	modImplementation ("eu.pb4:polymer-autohost:${polymer_version}")
+	modImplementation ("eu.pb4:polymer-resource-pack-extras:${polymer_version}")
+
+	// FactoryTools
+	modImplementation include ("eu.pb4:factorytools:${factorytools_version}")
 }
 
 processResources {
